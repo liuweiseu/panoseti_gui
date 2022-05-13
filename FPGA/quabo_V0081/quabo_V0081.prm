@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX1
+Size               32M
+Start Address      0x00000000
+End Address        0x01FFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x00661EDB    Nov 19 18:11:36 2019    C:/XilinxProjects/PANOSETI/QuadrantBoard/quabo5/configfiles/quabo_V0081.bit

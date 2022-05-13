@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o C:\XilinxProjects\PANOSETI\QuadrantBoard\quabo3\config_files\/quabo_v003 -s 32768 -u 0 C:\XilinxProjects\PANOSETI\QuadrantBoard\quabo3\config_files\quabo_v003.bit -spi 
+
+PROM C:\XilinxProjects\PANOSETI\QuadrantBoard\quabo3\config_files\quabo_v003.prm map: Thu Nov 29 09:22:22 2018
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          32768K
+PROM start    0000:0000
+PROM end      01ff:ffff
+PROM checksum 9b3ebcb7
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0066:1edb     Nov 29 09:17:43 2018 C:/XilinxProjects/PANOSETI/QuadrantBoard/quabo3/config_files/quabo_v003.bit

@@ -1,0 +1,41 @@
+%reportHK
+%load .mat first
+%close all
+function plotHK(ind1,ind2,dataname)
+load('C:\Users\jerome\Documents\panoseti\panoHK\HK4660MtLaguna20190410.mat')
+% nbacq=51500;%numel(hvmon0tab);
+nbacq=numel(hvmon0tab);
+% ind1=nbacq-4000;
+% ind2=nbacq-2500;
+figure('Position',[200,200,800,800])
+set(gcf,'Color','w')
+subplot(2,1,1)
+hold on
+plot(  hvmon0tab(ind1:ind2),'b');
+plot(  hvmon1tab(ind1:ind2),'r');
+plot(  hvmon2tab(ind1:ind2),'g');
+plot(  hvmon3tab(ind1:ind2),'m');
+%plot(  rawhvmontab(ind1:ind2),'k');
+xlabel('Time [acq.# or 3s units]')
+ylabel('HV [V]')
+ylim([53 55.5])
+%legend('HV1','HV2','HV3','HV4','HVraw')
+legend('HV1','HV2','HV3','HV4','Location','SouthEast')
+hold off
+subplot(2,1,2)
+hold on
+plot(  ihvmon0tab(ind1:ind2),'b');
+plot(  ihvmon1tab(ind1:ind2),'r');
+plot(  ihvmon2tab(ind1:ind2),'g');
+plot(  ihvmon3tab(ind1:ind2),'m');
+hold off
+xlabel('Time [acq.# or 3s units]')
+ylabel('I [\mu A]')
+legend('I1','I2','I3','I4','Location','SouthEast')
+
+  saveas(gcf,[dataname 'HK_' num2str(ind1) '_' num2str(ind2)  '.png'])
+   saveas(gcf,[dataname 'HK_'  num2str(ind1) '_' num2str(ind2)  '.fig'])
+end
+                       
+
+

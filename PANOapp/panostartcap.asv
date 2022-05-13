@@ -1,0 +1,46 @@
+filesize=50000;
+nbfiles=10;
+packetsperfile=10;
+
+ prefix='p' ;
+ capture_filter_str='';
+ 
+ 
+ 
+% create the night directory if needed
+utc=-1.*(getutcdelay('LICK'))/24.;% in days
+time=now; %in days 
+timeutc=time+utc;
+dateutc=datestr(timeutc,'yyyymmdd');
+ nightdir=[getuserdir filesep 'panoseti' filesep 'DATA' filesep dateutc]; 
+if ~isequal(exist(nightdir, 'dir'),7)
+    mkdir(nightdir)
+end
+
+while 1==1
+
+ datadir=[getuserdir filesep 'panoseti' filesep 'DATA' filesep '20200618' filesep]; 
+timeutcstr=[' ' datestr(timeutc,'yyyymmddHHMMSS')];
+% rep=[readconfig('maindatadirectory') dateutc '\log\'];
+% if ~isequal(exist(rep, 'dir'),7)
+%     mkdir(rep)
+% end
+% logfilename=[rep filename];
+% fileID = logfilename;
+% init=1;
+% addlog(['Time[UT]: ' dateutc timeutcstr],fileID,1,init) %,'time',datestr(timeutc,'yyyymmddHHMMSS')
+log.timeUT=[dateutc timeutcstr];
+log.dateutc=[dateutc datestr(timeutc,'HHMMSS')];
+%localtime:
+log.localtimePST=datestr(time-(1/24)*isdst(datetime('today','TimeZone','America/Los_Angeles')),'mmm.dd,yyyy HH:MM:SS AM');
+%log.date=datestr(timeutc,'mmm.dd, yyyy (HH:MM:SS UT)') ;
+log.date=[datestr(timeutc,'mmm.dd, yyyy  HH:MM:SS UT (') log.localtimePST ' PST)'];
+
+
+rep=[readconfig('maindatadirectory') dateutc '\' log.dateutc '\'];
+if ~isequal(exist(rep, 'dir'),7)
+    mkdir(rep)
+end
+ 
+  panocap(filesize, nbfiles, packetsperfile, datadir, prefix, capture_filter_str)
+end

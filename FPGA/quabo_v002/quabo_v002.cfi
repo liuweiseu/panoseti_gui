@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            11/20/2018 - 18:56
+SOURCE          C:\XilinxProjects\PANOSETI\QuadrantBoard\quabo3\config_files\quabo_v002.mcs
+DEVICE          32768K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x9B3E6918
+START_ADDRESS   0x00000000 END_ADDRESS 0x00661EDB DIRECTION_UP   "C:/XilinxProjects/PANOSETI/QuadrantBoard/quabo3/config_files/quabo_v002.bit" 7k160tffg676
