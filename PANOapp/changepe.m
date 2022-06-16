@@ -19,6 +19,7 @@ function quaboconfig=changepe(peval,gain,quaboconfig)
  load(([getuserdir filesep 'panoseti' filesep 'Calibrations' filesep 'CalibrationDB.mat']))
   [ig,indexquabosn]=ismember(['QuaboSN'] ,quaboconfig);
  inddetrow=find(quaboDETtable(:,1)==str2num(cell2mat(quaboconfig(indexquabosn,3))));
+%%%%%%%%%%%%%%%%%% inddetrow=2
 A0=gain*quaboDETtable(inddetrow,7);
 A1=gain*quaboDETtable(inddetrow,8);
 A2=gain*quaboDETtable(inddetrow,9);
@@ -37,13 +38,13 @@ dactab3=round(A3*peval+B3);
   
   for my=1:4
 if my==1
-    dactab=dactab0;
+    dactab=dactab0(1);
 elseif my==2
-    dactab=dactab1;
+    dactab=dactab1(1);
 elseif my==3
-    dactab=dactab2;
+    dactab=dactab2(1);
 elseif my==4
-    dactab=dactab3;
+    dactab=dactab3(1);
 end
 if (dactab>=1024) || (dactab<=0) 
     disp('*********** DACTAB OUT OF RANGE; CHECK YOUR VALUES!*******')
@@ -52,6 +53,6 @@ end
   quaboconfig(indexdac,my+1)={['0x' dec2hex(dactab)]};
   end
   
-    disp(['Sending Maroc comm...DAC' dacnum ':' num2str(dactab0)  ' ' num2str(dactab1)  ' ' num2str(dactab2)  ' ' num2str(dactab3)  ' '])
+    disp(['Sending Maroc comm...DAC' dacnum ':' num2str(dactab0(1))  ' ' num2str(dactab1(1))  ' ' num2str(dactab2(1))  ' ' num2str(dactab3(1))  ' '])
             sendconfig2Maroc(quaboconfig);
 end

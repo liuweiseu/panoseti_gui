@@ -9,7 +9,7 @@ load(([getuserdir filesep 'panoseti' filesep 'Calibrations' filesep 'Calibration
 load((([getuserdir filesep 'panoseti' filesep 'Calibrations' filesep 'badpixmaps.mat'])),'badpix')
 load('MarocMap.mat');
 
-badpixels=cell2mat(badpix(inddetrow));
+badpixels=cell2mat(badpix(inddetrow(1)));
 
 nbbadpix=size(badpixels,1);
 

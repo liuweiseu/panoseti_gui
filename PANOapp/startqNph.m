@@ -17,15 +17,18 @@ disp('Starting HV...')
 szq=size(quaboconfig,1);
 quaboconfig(szq+1,1)={'IP'};quaboconfig(szq+1,3)={IP};
 szq=size(quaboconfig,1);
+
+quaboSN='12';
 quaboconfig(szq+1,1)={'QuaboSN'};quaboconfig(szq+1,3)={str2num(quaboSN)};
 
 maskmode=0;
 % maskpix1=[63, 4];
 % %maskpix2=[12 2];
 % marocmap(maskpix1(1),maskpix1(2),:)
+%mask specific pix
 maskpix1=marocmap16(7,9,:);
 
-    quaboconfig = changemask(maskmode,maskpix1,quaboconfig); %maskmode: unmask all pix (=0); mask all excepted some (=1)
+   quaboconfig = changemask(maskmode,maskpix1,quaboconfig); %maskmode: unmask all pix (=0); mask all excepted some (=1)
  
 if maskmode==0
     masklabel='no mask.';

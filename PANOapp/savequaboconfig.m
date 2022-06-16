@@ -19,7 +19,7 @@ if nargin<=2
     startRow = 1;
     endRow = inf;
 end
-
+%config format
 %% Format for each line of text:
 %   column1: text (%s)
 %	column2: text (%s)

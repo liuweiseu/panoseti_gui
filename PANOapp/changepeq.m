@@ -17,7 +17,9 @@ quaboconfig=importquaboconfig([getuserdir filesep 'panoseti' filesep 'defaultcon
 szq=size(quaboconfig,1);
 quaboconfig(szq+1,1)={'IP'};quaboconfig(szq+1,3)={IP};
 szq=size(quaboconfig,1);
+%%%%%%%%%%%%%%%quaboSN='12'
 quaboconfig(szq+1,1)={'QuaboSN'};quaboconfig(szq+1,3)={str2num(quaboSN)};
+
 
 % maskmode=0;
 % % maskpix1=[63, 4];
@@ -41,6 +43,7 @@ quaboconfig(szq+1,1)={'QuaboSN'};quaboconfig(szq+1,3)={str2num(quaboSN)};
  quaboconfig=changegain(gain, quaboconfig,1); % third param is using an adjusted gain map (=1) or not (=0)
  quaboconfig=changepe(30.,gain,quaboconfig);
 %quaboconfig=changepedual(30,30.,gain,quaboconfig);
+
 quaboconfig=maskbadpix(1,quaboconfig);
 
  [ig,indexacqmode]=ismember(['ACQMODE '] ,quaboconfig);
